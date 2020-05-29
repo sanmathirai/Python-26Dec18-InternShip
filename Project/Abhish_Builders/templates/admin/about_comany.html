@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load staticfiles %}
+<head>
+     {% include "links_css_js/link_css.html" %}
+ <script>
+            $("#formadp").on('submit', function(event) {
+                    alert("Succesfully added");
+                    })
+     </script>
+</head>
+
+<body>
+
+	<!-- Top Header_Area -->
+	 {% include "top_header/top_header.html" %}
+
+	<!-- End Top Header_Area -->
+
+	<!-- Header_Area -->
+   {% include "admin/admin_header.html" %}
+	<!-- End Header_Area -->
+
+    <!-- property details -->
+    <section class="all_contact_info">
+        <div class="container">
+                <br><br>
+            <div class="row w3-orange " >
+                    <h2 class="text-center" >Sign Up</h2>
+            </div>
+            <div class="row contact_row">
+
+{% if success %}
+ <label><font style="color: #1e7e34"> {{ success }}</font></label>
+                {% endif %}
+                    <div class="w3-card-4">
+
+                      <form class="w3-container"  method="post"  action="urls.py">
+                        {% csrf_token %}
+
+                         <input type="email" class="w3-input" placeholder="enter company email" name="email_id" ><br>
+
+                          <input type="text" class="w3-input" placeholder="enter company website" name="website" >
+                          <input type="text" class="w3-input" placeholder="enter company timing(eg : Mon - Sat 9:00 - 7:00)" name="timing" >
+
+                        <button type="submit"  class="w3-button  w3-section w3-orange w3-ripple" formaction='/aboutcompany/' name="submit">SAVE</button><br>
+
+                      </form>
+                    </div><br>
+            </div>
+        </div>
+    </section>
+
+    <!--end property details -->
+
+    <!-- Footer Area -->
+    {% include "footer/footer.html" %}
+    <!-- End Footer Area -->
+
+    <!-- jQuery JS -->
+
+    {% include "links_css_js/link_for_js.html" %}
+</body>
+</html>

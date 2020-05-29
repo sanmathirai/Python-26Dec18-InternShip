@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+
+     {% include "links_css_js/link_css.html" %}
+</head>
+<body>
+    <!-- Preloader -->
+
+
+	<!-- Top Header_Area -->
+	{% include "top_header/top_header.html" %}
+	<!-- End Top Header_Area -->
+
+	<!-- Header_Area -->
+   {% include "user/userheader.html" %}
+	<!-- End Header_Area -->
+
+    <!-- Slider area -->
+    <section class="slider_area row m0">
+        <div class="slider_inner">
+            <div data-thumb="images/slider-1.jpg" data-src="{% static  "images/slider-1.jpg" %}">
+                <div class="camera_caption">
+                   <div class="container">
+                        <h5 class=" wow fadeInUp animated">Welcome to </h5>
+                        <h3 class=" wow fadeInUp animated" data-wow-delay="0.5s">ABHISH BUILDERS</h3>
+
+
+                   </div>
+                </div>
+            </div>
+            <div data-thumb="images/slider-2.jpg" data-src={% static "images/slider-2.jpg" %}>
+                <div class="camera_caption">
+                   <div class="container">
+
+
+                   </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Slider area -->
+
+    <!-- Professional Builde -->
+  
+    <!-- End Professional Builde -->
+
+     <section class="featured_works row" data-stellar-background-ratio="0.5">
+        <div class="tittle wow fadeInUp">
+            <h2>Our Projects</h2>
+
+        </div>
+
+        <div class="featured_gallery">
+            {% for property in prop_details %}
+            <div class="col-md-3 col-sm-4 col-xs-6 gallery_iner p0">
+                <img src="{{ property.property_image.url }}" height="200" width="400" alt="">
+                <div class="gallery_hover">
+                    <h4>{{ property.property_name }}</h4>
+
+
+
+            <a href = "{% url 'view_property' property.pk  %}">View project</a>
+
+                </div>
+            </div>
+                {%  empty %}
+{% endfor %}
+
+        </div>
+
+    </section>
+
+    <!-- End blog-2 area -->
+
+    <!-- About Us Area -->
+<div id="aboutus">
+     </section>
+      <section class="banner_area" data-stellar-background-ratio="0.5">
+        <h2>ABOUT US</h2>
+
+    </section>
+    <section  class="about_us_area row">
+        <div class="container">
+            <div class="tittle wow fadeInUp">
+                <h2>ABOUT</h2>
+                <h4>Abhish builders and Developers</h4>
+            </div>
+            <div class="row about_row">
+                <div class="who_we_area col-md-7 col-sm-6">
+                    <div class="subtittle">
+                        <h2>Abhish builders</h2>
+                    </div>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+                    <a href="#" class="button_all">Contact Now</a>
+                </div>
+                <div class="col-md-5 col-sm-6 about_client">
+                    <img src="{% static "images/about_client.jpg" %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    <!-- End About Us Area -->
+
+    <!-- What ew offer Area -->
+   
+    <!-- End What ew offer Area -->
+
+    <!-- Our Features Area -->
+   
+    <!-- End Our Featured Works Area -->
+
+    <!-- Our Latest Blog Area -->
+
+
+
+    <!-- End Our Latest Blog Area -->
+
+    <!-- Our Partners Area -->
+    
+    <!-- End Our Partners Area -->
+
+    <!-- Footer Area -->
+     <!-- Footer Area -->
+    {% include "footer/footer.html" %}
+    <!-- End Footer Area -->
+
+    <!-- jQuery JS -->
+    {% include "links_css_js/link_for_js.html" %}
+</body>
+</html>

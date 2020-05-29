@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load staticfiles %}
+<head>
+     {% include "links_css_js/link_css.html" %}
+ <script>
+            $("#formadp").on('submit', function(event) {
+                    alert("Succesfully added");
+                    })
+     </script>
+</head>
+
+<body>
+
+	<!-- Top Header_Area -->
+	 {% include "top_header/top_header.html" %}
+
+	<!-- End Top Header_Area -->
+
+	<!-- Header_Area -->
+   {% include "admin/admin_header.html" %}
+	<!-- End Header_Area -->
+
+    <!-- property details -->
+    <section class="all_contact_info">
+        <div class="container">
+                <br><br>
+            <div class="row w3-orange " >
+                    <h2 class="text-center" >Sign Up</h2>
+            </div>
+            <div class="row contact_row">
+
+
+
+                    <div class="w3-card-4">
+                      <form class="w3-container" id="formadp" method="post" enctype="multipart/form-data" action="urls.py">
+                        {% csrf_token %}
+
+                         <input type="text" class="w3-input" placeholder="property name" name="property_name" required="required" value="{{ property_detail.property_name }}"><br>
+                          <input class="w3-input" placeholder="address" name="address" required="required" value="{{ property_detail.adress }}"><br>
+                          <input class="w3-input" placeholder="Property details" name="property_details"   required="required" value="{{ property_detail.property_details }}"><br>
+                          <input class="w3-input" placeholder="About location"  required="required"  name="about_location"  value="{{ property_detail.about_location }}"><br>
+                          <input class="w3-input"  placeholder="Facilities"  required="required"  name="facilities"  placeholder="facilities" value="{{ property_detail.facilities }}"><br>
+                          <img src="{{ property_detail.property_image.url }}" height="100" width="100"><br>
+
+                          <input name="primary_key" hidden="hidden" value="{{ property_detail.pk }}">
+                        <button type="submit"  formaction='/edit_properties/'  class="w3-button  w3-section w3-orange w3-ripple" name="submit">SAVE </button><br>
+
+                      </form>
+                    </div><br>
+            </div>
+        </div>
+    </section>
+
+    <!--end property details -->
+
+    <!-- Footer Area -->
+    {% include "footer/footer.html" %}
+    <!-- End Footer Area -->
+
+    <!-- jQuery JS -->
+
+    {% include "links_css_js/link_for_js.html" %}
+</body>
+</html>

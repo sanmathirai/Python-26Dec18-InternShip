@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "links_css_js/link_css.html" %}
+  <script type="text/javascript">
+    function validateForm()
+    {
+        var a=document.forms["name"].value;
+
+        if (a==null)
+        {
+            alert("Please Fill All Required Field");
+
+        }
+       else
+        {
+            alert("succesful");
+        }
+    }
+</script>
+</head>
+<body>
+
+	<!-- Top Header_Area -->
+	 {% include "top_header/top_header.html" %}
+	<!-- End Top Header_Area -->
+
+	<!-- Header_Area -->
+     {% include "top_header/div_header.html" %}
+	<!-- End Header_Area -->
+
+
+    <!-- sign up form -->
+    <section class="all_contact_info">
+        <div class="container">
+                <br><br>
+            <div class="row w3-orange " >
+                    <h2 class="text-center" >Sign Up</h2>
+            </div>
+
+            <div class="row contact_row">
+               {% if success %}
+ <label><font style="color: #1e7e34"> {{ success }}</font></label>
+                {% endif %}
+                    <div class="w3-card-4" id="pop">
+                      <form class="w3-container" method="post"  name="Form" action="urls.py">
+                        {% csrf_token %}
+
+                         <input type="text" class="w3-input" placeholder="your full name"  name="name"  required="required">
+                          <br>
+                        <input type="email" class="w3-input" placeholder="Email ID" name="emailid" required="required"><br>
+                        <input type=password
+                               class="w3-input"
+                               placeholder="Password(Must contain at least one number one and lowercase letter, and at least 8 or more characters)"
+                               name="password"  pattern="(?=.*\d)(?=.*[a-z]).{8,}"
+                               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                               required="required"><br>
+                        <input type="tel" class="w3-input" placeholder="Contact No"  pattern="(?=.*\d).{10,}" maxlength="12" title="invalid number" required="required"  name="contact"><br>
+                        <button type="submit"  class="w3-button  w3-section w3-orange w3-ripple"  formaction='/registeruser/' name="submit">Sign Up</button><br>
+                        
+                      </form>
+
+
+     <br>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- End signup form -->
+
+    <!-- Footer Area -->
+      {% include "footer/footer.html" %}
+    <!-- End Footer Area -->
+
+    <!-- jQuery JS -->
+   {% include "links_css_js/link_for_js.html" %}
+</body>
+</html>

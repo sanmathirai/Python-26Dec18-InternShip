@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   {% load staticfiles %}
+     {% include "links_css_js/link_css.html" %}
+
+</head>
+
+<body>
+
+	<!-- Top Header_Area -->
+	 {% include "top_header/top_header.html" %}
+
+	<!-- End Top Header_Area -->
+
+	<!-- Header_Area -->
+   {% include "admin/admin_header.html" %}
+	<!-- End Header_Area -->
+
+    <!-- property details -->
+
+
+
+
+
+<div class="container">
+<section class="what_we_area row">
+        <div class="container">
+            <div class="tittle wow fadeInUp">
+                <h2>Added Properties</h2>
+
+            </div>
+
+            <div class="row construction_iner">
+{% for property in property_detail %}
+                <div class="col-md-4 col-sm-6 construction">
+                   <div class="cns-img">
+                        <img class="w3-hover-shadow" src="{{property.property_image.url}}" alt="" width="300" height="240">
+                   </div>
+                   <div class="cns-content">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                       <h2>{{ property.property_name }}</h2>
+                      <a href = "{% url 'edit_property_details' property.pk  %}"><button type="button" class="btn btn-link glyphicon glyphicon-edit gly" >EDIT</button></a>
+                       <a href = "{% url 'delete_property' property.pk  %}"> <button type="button" class="btn btn-link glyphicon glyphicon-remove gly">DELETE</button></a>
+                   </div>
+                </div>
+{% endfor %}
+            </div>
+
+        </div>
+    </section>
+
+
+</div>
+
+
+    <!--end property details -->
+
+    <!-- Footer Area -->
+
+    <!-- End Footer Area -->
+
+    <!-- jQuery JS -->
+    {% include "links_css_js/link_for_js.html" %}
+</body>
+</html>

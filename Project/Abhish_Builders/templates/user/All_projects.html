@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+     {% include "links_css_js/link_css.html" %}
+</head>
+<body>
+{% include "top_header/top_header.html" %}
+	<!-- End Top Header_Area -->
+
+	<!-- Header_Area -->
+   {% include "user/userheader.html" %}
+	<!-- End Header_Area -->
+<section class="banner_area" data-stellar-background-ratio="0.5">
+        <h2>Our Projects</h2>
+
+    </section>
+    <!-- End Banner area -->
+
+    <!-- blog-2 area -->
+
+
+<div class="container">
+<section class="what_we_area row">
+        <div class="container">
+            <div class="tittle wow fadeInUp">
+
+
+            </div>
+
+            <div class="row construction_iner">
+{% for property in prop_details %}
+                <div class="col-md-4 col-sm-6 construction">
+                   <div class="cns-img">
+                        <img class="w3-hover-shadow" src="{{property.property_image.url}}" alt="" width="300" height="240">
+                   </div>
+                   <div class="cns-content">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                       <h2> <a href = "{% url 'view_property' property.pk  %}">{{ property.property_name }}</a></h2>
+
+                   </div>
+                </div>
+{% endfor %}
+            </div>
+
+        </div>
+    </section>
+
+
+</div>
+
+  {% include "footer/footer.html" %}
+    <!-- End Footer Area -->
+
+    <!-- jQuery JS -->
+    {% include "links_css_js/link_for_js.html" %}
+</body>
+</html>

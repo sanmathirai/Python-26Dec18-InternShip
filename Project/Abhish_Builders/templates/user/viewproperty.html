@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load staticfiles %}
+<head>
+     {% include "links_css_js/link_css.html" %}
+</head>
+
+<body>
+
+	<!-- Top Header_Area -->
+	 {% include "top_header/top_header.html" %}
+
+	<!-- End Top Header_Area -->
+
+	<!-- Header_Area -->
+   {% include "user/userheader.html" %}
+	<!-- End Header_Area -->
+
+
+    <!-- All contact Info -->
+  <div class="container">
+
+
+
+
+
+
+
+
+          <section class="banner_area" data-stellar-background-ratio="0.5">
+        <h2>{{ vi.property_name }}</h2>
+
+    </section>
+    <!-- End Banner area -->
+
+    <!-- About Us Area -->
+ <section class="our_feature_area">
+        <div class="container">
+
+            <div class="feature_row row">
+                <div class="col-md-6 feature_img">
+                    <img src="{{ vi.property_image.url }}" height=450" alt="">
+                </div>
+
+                <div class="col-md-6 feature_content">
+                    <div class="subtittle">
+                        <h2>{{ vi.property_name }}</h2>
+
+                    </div>
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <i class="fa fa-building" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <a href="#">Property Details</a>
+                            <p class="text-justify">{{ vi.property_details }}</p>
+                        </div>
+                        <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <i class="fa fa-building" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <a href="#">Facilities</a>
+                            <p class="text-justify">{{ vi.facilities }}</p>
+                        </div>
+
+                    </div>
+                         <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <i class="fa fa-building" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <a href="#">About Location</a>
+                            <p class="text-justify">{{ vi.about_location}}</p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+  </div>
+
+
+    <!-- Footer Area -->
+    {% include "footer/footer.html" %}
+    <!-- End Footer Area -->
+
+    <!-- jQuery JS -->
+    {% include "links_css_js/link_for_js.html" %}
+</body>
+</html>
